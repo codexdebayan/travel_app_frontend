@@ -1,8 +1,11 @@
+import { Home } from './pages';
 import './App.css';
+import { HotelCard } from './components/HotelCard/HotelCard';
 
 function App() {
   return (
-    <h1>Hello from codex</h1>
+    <Home/>
+    
   );
 }
 
