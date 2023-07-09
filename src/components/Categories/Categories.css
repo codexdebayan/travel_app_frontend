@@ -17,6 +17,7 @@
 
 .button.btn-category{
     padding: 0 ;
+    
     top: 6rem;
     border: 1px solid var(--accent-color);
     border-radius: 50%;
