@@ -1,0 +1,85 @@
+.heading{
+    background-color: var(--background-color);
+    padding: 8px 3rem;
+    border-bottom: 1px solid var(--accent-color);
+    justify-content: space-between;
+    position: fixed;
+    z-index: 2;
+    width: 100%;
+}
+
+
+.heading-1{
+    font-size: 1.75rem;
+    color: var(--primary-color-1);
+    padding: 0;
+}
+
+.icon{
+    height: 4rem;
+    width: 4rem;
+}
+
+
+.nav{
+    border: 1px solid var(--container-border-color);
+    border-radius: 4px;
+    height: 2rem;
+
+}
+
+.nav:hover{
+    box-shadow: 2px 2px 5px 4px rgba(0, 0, 0, .1);
+
+}
+
+.profile-option{
+    color: var(--text-color-primary);
+    font-size: 2.5rem; 
+
+}
+
+.menu{
+    border-right: 1px solid var(--accent-color);
+    padding: 4px;
+}
+
+.person{
+    background-color: var(--accent-color);
+    border-radius: 0 4px 4px 0; 
+    height: 100%;
+    padding: 4px;
+}
+
+.cursor-pointer:hover{
+    cursor: pointer;
+}
+
+.cursor-no-drop{
+    cursor: no-drop;
+}
+
+.form-container{
+    background-color: #fff;
+    height: 2.75rem;
+    border-radius: 4px;
+}
+
+.form-option{
+    font-size: .875rem;
+    padding: 8px;
+    color: var(--text-color-primary);
+}
+
+.border-right-1px{
+    border-right: 1px solid var(--accent-color);
+    height: 70%;
+}
+
+.search{
+    background-color: var(--primary-color-1);
+    height: 100%;
+    padding: 8px;
+    font-size: 1.875rem;
+    border-radius: 0 4px 4px 0;
+}
