@@ -1,0 +1,58 @@
+.price-details-container{
+    background-color: var(--background-color);
+    padding: 1.5rem;
+    width: 25rem;    
+    margin-top: 2rem;
+    margin-left: auto;
+    border: 1px solid var(--accent-color);
+    border-radius: 4px;
+    align-self: flex-start;
+}  
+.guests {
+  border: 1px solid var(--container-border-color);
+  padding: 4px 0;
+  text-align: left;
+}
+
+.gutter-sm {
+  padding: 8px 1rem;
+}
+
+.btn-reserve{
+  width: 100%;
+  padding: 1rem;
+  
+}
+
+.reserve-button{
+  font-size: 1.2rem;
+  padding: 0.5rem 1.5rem;
+  border: none;
+  border-radius: 0.25rem;
+  background: var(--primary-color-1);
+  color: var(--text-color-secondary);
+  font-weight: 700;
+}
+.price-distribution {
+  padding-top: 1rem;
+}
+
+.final-price {
+  padding: 10px;
+}
+
+.final-price:last-child {
+  border-top: 1px solid var(--container-border-color);
+}
+
+.justify-space-between {
+  justify-content: space-between;
+}
+
+.guest-count-input {
+  border: none;
+}
+
+.guest-count-input:focus {
+  outline: none;
+}

@@ -1,11 +1,14 @@
-import { Home } from './pages';
-import './App.css';
-import { HotelCard } from './components/HotelCard/HotelCard';
+import { Home, SearchResults, SingleHotel } from './pages';
+import {Route, Routes } from "react-router-dom";
+import "./App.css";
 
 function App() {
   return (
-    <Home/>
-    
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/hotels/:name/:address/:id/reserve" element={<SingleHotel />} />
+      <Route path="/hotels/:address" element={<SearchResults/>}/>
+    </Routes>    
   );
 }
 
