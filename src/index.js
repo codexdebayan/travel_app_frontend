@@ -1,14 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import { CategoryProvider } from './context/category-context';
+import { CategoryProvider ,DateProvider} from './context';
+import { BrowserRouter as Router } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <CategoryProvider>    
-      <App />
-    </CategoryProvider>
+    <Router>
+      <CategoryProvider>  
+        <DateProvider>
+          <App />
+        </DateProvider>  
+      </CategoryProvider>
+    </Router>
   </React.StrictMode>
 );
 
