@@ -8,7 +8,7 @@
 }
 
 .border-bottom{
-    border-bottom: 1px solid var(--text-color-primary);
+    border-bottom: 1px solid var(--primary-color-1);
 }
 
 .gap-large{
@@ -17,7 +17,6 @@
 
 .button.btn-category{
     padding: 0 ;
-    
     top: 6rem;
     border: 1px solid var(--accent-color);
     border-radius: 50%;
@@ -32,4 +31,16 @@
 
 .btn-right{
     right: 11rem;
+}
+
+.button.btn-filter{
+    top: 6rem;
+    right: 2rem;
+    padding: 4px 8px;
+    border-radius: 2rem;
+    border: 1px solid var(--accent-color);
+}
+.btn-filter:hover,
+.btn-category:hover{
+    box-shadow: 1px 1px 4px 2px rgba(0,0,0,0.1);
 }
