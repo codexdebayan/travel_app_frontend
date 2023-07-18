@@ -1,14 +1,12 @@
-import "./Auth.css"
+import "./Auth.css";
 import { validateNumber, validatePassword } from "../../utils";
 import { useAuth } from "../../context";
 import { loginHandler } from "../../services";
 
-let isNumberValid,isPasswordValid;
+let isNumberValid, isPasswordValid;
 
 export const AuthLogin = () => {
-
-  const {authDispatch,number,password} = useAuth();
-
+  const { authDispatch, number, password } = useAuth();
 
   const handleNumberChange = (event) => {
     isNumberValid = validateNumber(event.target.value);
@@ -22,7 +20,7 @@ export const AuthLogin = () => {
       console.log("Invalid Number");
     }
   };
-  
+
   const handlePasswordChange = (event) => {
     isPasswordValid = validatePassword(event.target.value);
     if (isPasswordValid) {
@@ -37,27 +35,47 @@ export const AuthLogin = () => {
     }
   };
 
-  const handleFormSubmit =(e)=>{
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
-    if(isNumberValid && isPasswordValid ){
-      const {accessToken, username} = loginHandler(number,password);
+    if (isNumberValid && isPasswordValid) {
+      const { accessToken, username } = await loginHandler(number, password);
       authDispatch({
-        type:"SET_ACCESS_TOKEN",
-        payload:accessToken
+        type: "SET_ACCESS_TOKEN",
+        payload: accessToken,
       });
       authDispatch({
-        type:"SET_USER_NAME",
-        payload: username
+        type: "SET_USER_NAME",
+        payload: username,
       });
-      
     }
     authDispatch({
-      type: "CLEAR_USER_DATA"
+      type: "CLEAR_USER_DATA",
     });
     authDispatch({
-      type: "SHOW_AUTH_MODAL"
+      type: "SHOW_AUTH_MODAL",
     });
-  }
+  };
+
+  const handleTestCredentialsClick = async () => {
+    const { accessToken, username } = await loginHandler(
+      9999999999,
+      "Admin#1234"
+    );
+    authDispatch({
+      type: "SET_ACCESS_TOKEN",
+      payload: accessToken,
+    });
+    authDispatch({
+      type: "SET_USER_NAME",
+      payload: username,
+    });
+    authDispatch({
+      type: "CLEAR_USER_DATA",
+    });
+    authDispatch({
+      type: "SHOW_AUTH_MODAL",
+    });
+  };
 
   return (
     <div className="auth-container">
@@ -81,7 +99,7 @@ export const AuthLogin = () => {
             Password <span className="asterisk">*</span>
           </label>
           <input
-          defaultValue={password}
+            defaultValue={password}
             className="auth-input"
             placeholder="Enter Password"
             type="password"
@@ -90,10 +108,15 @@ export const AuthLogin = () => {
           />
         </div>
         <div>
-            <button className="button btn-primary cursor btn-login">Login</button>
+          <button className="button btn-primary cursor btn-login">Login</button>
         </div>
         <div className="cta">
-            <button className="button btn-outline-primary  cursor-pointer">Login with test credenials</button>
+          <button
+            className="button btn-outline-primary  cursor-pointer"
+            onClick={handleTestCredentialsClick}
+          >
+            Login with test credenials
+          </button>
         </div>
       </form>
     </div>
