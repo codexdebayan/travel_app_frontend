@@ -1,16 +1,16 @@
-import { Home, SearchResults, SingleHotel, Wishlist } from './pages';
+import { Home, SearchResults, SingleHotel, Wishlist,Payment,OrderSummary } from './pages';
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import { Filter } from './components';
-
+ 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/hotels/:name/:address/:id/reserve" element={<SingleHotel />} />
       <Route path="/hotels/:address" element={<SearchResults/>}/>
-      {/* <Route path="/filters" element={<Filter/>} /> */}
       <Route path="/wishlist" element={<Wishlist/>} />
+      <Route path="/confirm-booking/stay/:id" element={<Payment/>}/>
+      <Route path="/order-summary" element={<OrderSummary />} />
     </Routes>    
   );
 } 
