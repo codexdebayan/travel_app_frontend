@@ -1,12 +1,15 @@
 import "./FinalPrice.css";
 import { useDate} from "../../context";
 import { DateSelector } from "../DateSelector/DateSelector";
+import { useNavigate } from "react-router-dom";
 
 export const FinalPrice = ({singleHotel}) => {
 
-    const {price, rating, } = singleHotel;
+    const {_id, price, rating, } = singleHotel;
 
-    const { guests, dateDispatch } = useDate();
+    const  navigate = useNavigate();
+
+    const { guests, dateDispatch, checkInDate, checkOutDate, } = useDate();
 
     const handleGuestChange = (event) => { 
         dateDispatch({
@@ -16,31 +19,32 @@ export const FinalPrice = ({singleHotel}) => {
       };
     
       const handleReserveClick = () => {
-        if (!checkInDate) {
-          setAlert({
-            open: true,
-            message: "Select a Check-in Date",
-            type: "info"
-          })
-        } else if (!checkOutDate) {
-          setAlert({
-            open: true,
-            message: "Select a Check-out Date",
-            type: "info"
-          })
-        } else if (guests < 1) {
-          setAlert({
-            open: true,
-            message: "Add number of guests",
-            type: "info"
-          })
-        } else if (accessToken) {
-          navigate(`/confirm-booking/stay/${_id}`);
-        } else {
-          authDispatch({
-            type: "SHOW_AUTH_MODAL"
-          })
-        }
+        // if (!checkInDate) {
+        //   setAlert({
+        //     open: true,
+        //     message: "Select a Check-in Date",
+        //     type: "info"
+        //   })
+        // } else if (!checkOutDate) {
+        //   setAlert({
+        //     open: true,
+        //     message: "Select a Check-out Date",
+        //     type: "info"
+        //   })
+        // } else if (guests < 1) {
+        //   setAlert({
+        //     open: true,
+        //     message: "Add number of guests",
+        //     type: "info"
+        //   })
+        // } else if (accessToken) {
+        //   navigate(`/confirm-booking/stay/${_id}`);
+        // } else {
+        //   authDispatch({
+        //     type: "SHOW_AUTH_MODAL"
+        //   })
+        // }
+        navigate(`/confirm-booking/stay/${_id}`);
       };
 
   return (
@@ -83,7 +87,8 @@ export const FinalPrice = ({singleHotel}) => {
       <div>
         <button
           className="reserve-button btn-reserve  cursor"
-          // onClick={handleReserveClick}
+          onClick={handleReserveClick}
+          disabled={checkInDate && checkOutDate && guests>0 ? false: true}
         >
           Reserve
         </button>
