@@ -3,8 +3,8 @@ import axios from "axios";
 export const loginHandler = async (number, password) => {
   try {
     const {
-      data: { accessToken, username },
-            // data: { accessToken:accessToken, username },
+      // data: { accessToken, username },
+            data: { accessToken:accessToken, username },
 
     } = await axios.post(
       "https://nivas.cyclic.app/api/auth/login",
